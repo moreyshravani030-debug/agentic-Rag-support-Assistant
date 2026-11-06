@@ -1,0 +1,7 @@
+﻿Supervised learning uses labeled data to learn a mapping from inputs to outputs. Examples are classification and regression.
+Unsupervised learning finds patterns in unlabeled data. Examples are clustering and dimensionality reduction.
+Overfitting happens when a model learns the training data too closely and performs poorly on new data. It can be reduced with cross-validation, regularization, more data, or simpler models.
+Cross-validation splits the data into several folds and trains and tests the model on different folds to get a more reliable estimate of performance.
+RAG stands for Retrieval-Augmented Generation. Documents are split into chunks, converted to embeddings and stored in a vector database. For a question, the most similar chunks are retrieved and given to an LLM, which writes the answer from them.
+An embedding is a list of numbers that represents the meaning of a piece of text. Similar texts have similar embeddings.
+Agentic AI refers to systems where an AI model decides which steps or tools to use to complete a task, instead of only answering a single prompt.

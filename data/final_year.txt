@@ -1,0 +1,24 @@
+Project Title: Sanket - Indian Sign Language (ISL) Sign-to-Text Assistant
+
+Overview:
+Final year B.Tech (Artificial Intelligence) major project. Sanket is an Android app that recognizes supported ISL hand shapes through the phone camera and converts them into displayed text and speech. Recognition runs fully on the phone (offline). It does not translate full continuous ISL conversation.
+
+Problem Statement:
+Communication gap between sign language users and people who do not know sign language. Sanket converts supported hand signs into text and speech.
+
+Approach:
+- Input: live camera stream on an Android phone (frames processed in memory, not saved)
+- Hand landmarks: MediaPipe HandLandmarker extracts landmarks for up to two hands
+- Model: bundled TensorFlow Lite classifier for 35 classes (A-Z and 1-9)
+- Personal signs: users can teach up to 100 own held poses, stored locally and matched by a pose matcher
+- Stabilizer: a prediction is accepted only when it is clear and repeated, which reduces wrong detections
+- Output: accepted letters build a message, spoken with Android Text-to-Speech
+
+Agentic part (optional research backend):
+A custom Python (FastAPI) orchestration layer with stages for camera, landmarks, recognition, memory, language and speech, and it returns an agent trace. It can use an OpenAI-compatible LLM (gpt-4o-mini by default) only to turn recognized glosses into one English sentence; without an API key it uses a deterministic fallback. No external agent framework (LangChain, LangGraph, etc.) is used. This backend is not part of the Android recognition path.
+
+Tech Stack:
+Flutter (Dart), Kotlin, MediaPipe, TensorFlow Lite, Python, FastAPI, SQLAlchemy, PostgreSQL/SQLite, Docker
+
+Limitations:
+Recognizes static hand shapes and held poses only. Moving signs, facial cues and continuous ISL translation are not implemented. Real-world accuracy across different signers still needs evaluation.
